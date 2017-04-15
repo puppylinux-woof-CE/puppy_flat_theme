@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+
+  <path style="fill:#35728E;" d="m 34,3 a 32,32 0 1 0 0.1,0 z"/>
+  <path style="fill:none;stroke:#ddd;stroke-width:1;stroke-linecap:butt;" d="m 34,3 0,64 a 37.33,37.33 0 0 1 0,-64 a 37.33,37.33 0 0 1 0,64 m -32,-32 64,0 m -8,-21.33 a 42.66,42.66 0 0 1 -48,0 m 0,42.66 a 42.66,42.66 0 0 1 48,0"/>
+  
+  <path style="fill:none;stroke:#eeeeee;stroke-width:5" d="m 35,67 c 0,0 -3,-9 -3,-42 19,8 27,-1 32,-8"/>
+  <path style="fill:#496C86;fill-opacity:0.6;fill-rule:nonzero;stroke:#333333;stroke-width:4" d="M 64,19 C 59,25 52,34 33,26 34,66 33,82 64,96 96,82 97,69 96,26 77,34 68,25 64,19 z"/>
+
+  <path style="fill:#FFA400;" d="m 38,73 c 7,-6 8,-10 8,-20 0,-4 -1,-12 5,0 5,12 -1,13 5,23 7,-6 4,-11 5,-18 3,13 9,3 7,22 5,-7 6,-24 12,-33 0,10 3,14 3,21 5,-7 4,-13 7,-14 1,14 6,1 5,10 C 90,83 80,89 64,96 46,88 41,80 38,73 z"/>
+  <path style="fill:none;stroke:#333333;stroke-width:4" d="M 64,19 C 59,25 52,34 33,26 34,66 33,82 64,96 96,82 97,69 96,26 77,34 68,25 64,19 z"/>
+
+</svg>
