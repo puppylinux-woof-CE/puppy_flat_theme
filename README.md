@@ -4,11 +4,11 @@ flatter icon theme
 
 ## Build
 
-First type `export THEME="Puppy Standard"`.
+First type `export THEME="Puppy Flat"`.
 
 Then type `make`.
 
-The icons will be built in `"Puppy Standard"` directory.
+The icons will be built in `"Puppy Flat"` directory.
 
 To install just type `make install`. `DESTDIR` is supported.
 
