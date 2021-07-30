@@ -2,11 +2,20 @@
 flatter icon theme
 
 
+## Preview
+
+[<img src="PuppyFlat.png" style="width:100%">](PuppyFlat.png)
+
+
 ## Build
 
-First type `export THEME="Puppy Flat"`.
+First edit (if using a distro other than puppy) then "source" the `build.conf` file then run `make`.
 
-Then type `make`.
+
+```sh
+. ./build.conf
+make
+```
 
 The icons will be built in `"Puppy Flat"` directory.
 
