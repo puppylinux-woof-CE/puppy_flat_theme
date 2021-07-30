@@ -26,9 +26,9 @@ while read -r line;do
 			[ -z "$ent" ] && continue # skip blank lines
 			if [ "${ent:0:4}" = '<svg' ];then
 				if echo "$ent" | grep -q 'xlink';then
-					printf "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" height=\"${SIZE}px\" width=\"${SIZE}px\" viewBox=\"0 0 100 100\">\n" >> "../${THEME}/${a}/${b}"
+					printf "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" height=\"${SIZE}px\" width=\"${SIZE}px\" viewBox=\"$VIEWBOX\">\n" >> "../${THEME}/${a}/${b}"
 				else
-					printf "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"${SIZE}px\" width=\"${SIZE}px\" viewBox=\"0 0 100 100\">\n" >> "../${THEME}/${a}/${b}"
+					printf "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"${SIZE}px\" width=\"${SIZE}px\" viewBox=\"$VIEWBOX\">\n" >> "../${THEME}/${a}/${b}"
 				fi
 			elif [ "${ent:0:5}" = '<?xml' -o "${ent:0:6}" = '</svg>' ];then
 				printf "%s\n" "${ent}" >> "../${THEME}/${a}/${b}"
@@ -48,7 +48,7 @@ done < ../theme.conf
 # constuct the index.theme
 echo '[Icon Theme]' > "${THEME}"/index.theme
 echo "Name=${THEME}" >> "${THEME}"/index.theme
-echo "Inherits=PMaterial,Hicolor" >> "${THEME}"/index.theme
+echo "Inherits=Hicolor" >> "${THEME}"/index.theme
 echo "Comment=$COMMENT" >> "${THEME}"/index.theme
 echo -n "Directories=" >> "${THEME}"/index.theme
 (cd "${THEME}"; find ./16 ./22 ./24 ./32 ./48 ./64 ./scalable -mindepth 1 -type d) > $TMP0
@@ -101,7 +101,7 @@ for m in application-x-compressed.svg application-pet.svg;do
 	esac
 	cp -af "${SRC_DIR}/mimetypes/$m" ${TGT_DIR}/${t}
 done
-for a in internet.svg chat.svg paint.svg edit.svg libreoffice-calc.svg libreoffice-draw.svg libreoffice-writer.svg calendar.svg terminal.svg mail.svg x.svg network.svg module.svg screen_lock.svg multimedia.svg;do
+for a in internet.svg chat.svg paint.svg edit.svg libreoffice-calc.svg libreoffice-draw.svg libreoffice-writer.svg calendar.svg terminal.svg mail.svg network.svg module.svg screen_lock.svg multimedia.svg;do
 	case $a in
 		internet*)u=www.svg;;
 		*calc*)u=spread.svg;;
@@ -113,13 +113,14 @@ for a in internet.svg chat.svg paint.svg edit.svg libreoffice-calc.svg libreoffi
 		network*)u=connect.svg;;
 		module*)u=utility.svg;;
 		screen_lock*)u=lock-screen.svg;;
-		chat*|paint*|edit*|x*|multimedia*)u=$a;;
+		chat*|paint*|edit*|multimedia*)u=$a;;
 	esac
 	cp -af "${SRC_DIR}/apps/$a" ${TGT_DIR}/${u}
 done
-for p in directory.svg trash_full.svg trash_empty.svg;do
+for p in desktop.svg directory.svg trash_full.svg trash_empty.svg;do
 	case $p in
 		dir*)v=folder.svg;;
+		desktop*)v=x.svg;;
 		trash_empty*)v=trashcan_empty.svg;;
 		trash_full*)v=trashcan_full.svg;;
 	esac
@@ -152,5 +153,6 @@ echo "done!"
 # pack it up
 echo "Packaging ${pkg} as ${pkg}.tar.xz."
 [ -f "${pkg}.tar.xz" ] && rm "${pkg}.tar.xz"
-tar -cJf ${pkg}.tar.xz "${pkg}"
+(cd $pkg
+tar -cJf ../${pkg}.tar.xz * )
 echo 'Done!'
